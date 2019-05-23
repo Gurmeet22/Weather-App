@@ -24,17 +24,17 @@ const Promise = require('promise');
 const geocodepromise = (address) => {
     return new Promise((resolve, reject) => {
         const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(address) + '.json?access_token=pk.eyJ1IjoicGhhbnRvbTIyIiwiYSI6ImNqdno2YnhzaDBjaXU0OG80YWlvMTF2ZWcifQ.5YbIYs5C2-NYuxBTJ_0CLQ&limit=1';
-        request({url: url, json: true}, (error, response) => {
+        request({url, json: true}, (error, {body}) => {
             if(error){
                 reject('Unable to connect to servers!');
-            } else if(response.body.message || response.body.features.length === 0){
+            } else if(body.message || body.features.length === 0){
                 reject('Not found');
             } else {
-                const data = response.body;
+                
                 resolve({
-                    Longitude: data.features[0].center[0],
-                    Latitude : data.features[0].center[1],
-                    Place: data.features[0].place_name
+                    Longitude: body.features[0].center[0],
+                    Latitude : body.features[0].center[1],
+                    Place: body.features[0].place_name
                 });
             }
         });

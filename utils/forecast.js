@@ -27,17 +27,17 @@ const forecastpromise = (latitude, longitude) => {
     return new Promise((resolve, reject) => {
         
             const url = 'https://api.darksky.net/forecast/897293aac92a9852735dc216648ca991/' + latitude + ',' + longitude + '?lang=en&units=si';
-            request({url: url, json: true}, (error, response) => {
+            request({url, json: true}, (error, {body}) => {
                 if(error){
                     reject('Unable to connect to server!');
-                } else if(response.body.error) {
+                } else if(body.error) {
                     reject('Invalid location');
                 } else {
-                    const data = response.body;
+                    
                     resolve({
-                        summary: data.daily.data[0].summary,
-                        temperature: data.currently.temperature,
-                        rain: data.currently.precipProbability
+                        summary: body.daily.data[0].summary,
+                        temperature: body.currently.temperature,
+                        rain: body.currently.precipProbability
                     });
                 }
             });

@@ -26,12 +26,12 @@ else{
     // });
 
 
-    geocodepromise(address).then((data) => {
-        forecastpromise(data.Latitude, data.Longitude).then((fdata) => {
-            console.log(data.Place);
-            console.log(fdata.summary);
-            console.log(fdata.temperature);
-            console.log(fdata.rain);
+    geocodepromise(address).then(( {Latitude, Longitude, Place} ) => {
+        forecastpromise(Latitude, Longitude).then(( {summary, temperature, rain} ) => {
+            console.log(Place);
+            console.log(summary);
+            console.log(temperature);
+            console.log(rain);
         }).catch((error) => {
             console.log(error);
         })
