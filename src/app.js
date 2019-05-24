@@ -50,9 +50,9 @@ app.get('/weather', (req, res) => {
     }
     const address = req.query.address;
     geocode(address).then(( {Latitude, Longitude, Place} ) => {
-        forecast(Latitude, Longitude).then(( {summary, temperature, rain} ) => {
+        forecast(Latitude, Longitude).then(( {summary, temperature, rain, low, high} ) => {
             res.send({
-                forecast: summary + '. Temperature is ' + temperature + ' C. Probability of rain is '+rain+'%.',
+                forecast: summary + '. Temperature is ' + temperature + ' degrees with highest reaching up to '+high+' degrees and lowest at '+low+' degrees. Probability of rain is '+rain+'%.',
                 location: Place,
             })
             // console.log(Place);
