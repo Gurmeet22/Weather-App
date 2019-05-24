@@ -1,25 +1,18 @@
 {
-  "name": "Weather-App",
+  "name": "Web-Server",
   "version": "1.0.0",
-  "description": "A web-app to display weather information",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Gurmeet22/Weather-App.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Gurmeet22/Weather-App/issues"
-  },
-  "homepage": "https://github.com/Gurmeet22/Weather-App#readme",
   "dependencies": {
+    "express": "^4.17.0",
+    "hbs": "^4.0.4",
     "promise": "^8.0.3",
-    "q": "^1.5.1",
     "request": "^2.88.0"
   }
 }
