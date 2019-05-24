@@ -39,7 +39,7 @@ const geocodepromise = (address) => {
             }
         });
     });
-};
+}
 
 
 module.exports = geocodepromise;
