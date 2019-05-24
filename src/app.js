@@ -51,10 +51,8 @@ app.get('/weather', (req, res) => {
     geocode(address).then(( {Latitude, Longitude, Place} ) => {
         forecast(Latitude, Longitude).then(( {summary, temperature, rain} ) => {
             res.send({
-                forecast: summary,
+                forecast: summary + '. Temperature is ' + temperature + ' C. Probability of rain is '+rain+'%.',
                 location: Place,
-                temperature,
-                rain
             })
             // console.log(Place);
             // console.log(summary);

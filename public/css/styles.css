@@ -11,6 +11,7 @@ body {
 }
 
 .main-content {
+    text-align: center;
     flex-grow: 1;
 }
 
@@ -47,4 +48,18 @@ header {
 
 .portrait {
     width: 250px;
+}
+
+
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: white;
+    padding: 8px;
 }

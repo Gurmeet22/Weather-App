@@ -37,7 +37,7 @@ const forecastpromise = (latitude, longitude) => {
                     resolve({
                         summary: body.daily.data[0].summary,
                         temperature: body.currently.temperature,
-                        rain: body.currently.precipProbability
+                        rain: body.currently.precipProbability*100
                     });
                 }
             });
