@@ -17,11 +17,11 @@ weatherForm.addEventListener('submit', (e) => {
         response.json().then((data) => {
             messageOne.textContent = data.location
             messageTwo.textContent = data.forecast
-        }).catch((error) => {
+        }).catch(({error}) => {
             messageOne.textContent = error;
             console.log(error)
         })
-    }).catch((error) => {
+    }).catch(({error}) => {
         messageOne.textContent = error;
         console.log(error)
     })
