@@ -35,7 +35,7 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        helpText: 'This is some helpful text.',
+        helpText: 'Just enter your address in the search box provided and get the real-time weather forecast.',
         title: 'Help',
         name: 'Gurmeet Singh'
     })
@@ -76,7 +76,7 @@ app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
         name: 'Andrew Mead',
-        errorMessage: 'Help article not found.'
+        errorMessage: 'Invalid URl'
     })
 })
 
