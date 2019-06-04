@@ -1,7 +1,7 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
-const geocode = require('./utils/geocode.js');
+const {geocode, reverseGeocode} = require('./utils/geocode.js');
 const forecast = require('./utils/forecast.js');
 
 const app = express();
@@ -71,6 +71,36 @@ app.get('/weather', (req, res) => {
     })
 
     
+})
+
+app.get('/weather1', (req, res) => {
+    if(!req.query.lat || !req.query.long){
+        return res.send({
+            error: 'Address not provided'
+        })
+    }
+    const lat = req.query.lat
+    const long = req.query.long
+    reverseGeocode(lat, long).then(( {Place} ) => {
+        forecast(lat, long).then(( {summary, temperature, rain, low, high} ) => {
+            res.send({
+                forecast: summary + '. Temperature is ' + temperature + ' degrees with highest reaching up to '+high+' degrees and lowest at '+low+' degrees. Probability of rain is '+rain+'%.',
+                location: Place,
+            })
+            // console.log(Place);
+            // console.log(summary);
+            // console.log(temperature);
+            // console.log(rain);
+        }).catch((error) => {
+            return res.send({
+                error
+            });
+        })
+    }).catch((error) => {
+        return res.send({
+            error
+        });
+    })
 })
 
 app.get('/help/*', (req, res) => {

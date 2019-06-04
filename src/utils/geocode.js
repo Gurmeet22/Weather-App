@@ -21,7 +21,7 @@ const Promise = require('promise');
 //     });
 // };
 
-const geocodepromise = (address) => {
+const geocode = (address) => {
     return new Promise((resolve, reject) => {
         const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(address) + '.json?access_token=pk.eyJ1IjoicGhhbnRvbTIyIiwiYSI6ImNqdno2YnhzaDBjaXU0OG80YWlvMTF2ZWcifQ.5YbIYs5C2-NYuxBTJ_0CLQ&limit=1';
         request({url, json: true}, (error, {body}) => {
@@ -41,5 +41,26 @@ const geocodepromise = (address) => {
     });
 };
 
+const reverseGeocode = (latitude, longitude) => {
+    return new Promise((resolve, reject) => {
+        const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + longitude + ',' + latitude + '.json?access_token=pk.eyJ1IjoicGhhbnRvbTIyIiwiYSI6ImNqdno2YnhzaDBjaXU0OG80YWlvMTF2ZWcifQ.5YbIYs5C2-NYuxBTJ_0CLQ&limit=1';
+        request({url, json: true}, (error, {body}) => {
+            if(error){
+                reject('Unable to connect to servers!');
+            } else if(body.features.length === 0){
+                reject('Not found');
+            } else {
+                
+                resolve({
+                    Place: body.features[0].place_name
+                });
+            }
+        });
+    })
+}
 
-module.exports = geocodepromise;
+
+module.exports = {
+    geocode,
+    reverseGeocode
+}
