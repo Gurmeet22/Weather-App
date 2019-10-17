@@ -1,5 +1,7 @@
 body {
-    background-image:url('../img/back.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;
+    /* background-image:url('../img/back.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover; */
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #b82e1f 74%);
     font-family: arial;
     /* max-width: 650px;
     margin: 0 auto;
@@ -15,7 +17,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-y: hidden;
+    overflow: hidden;
     
 }
 
@@ -54,13 +56,13 @@ h1 {
 }
 
 header a {
-    color: #7C5CBF;
+    color: rgb(243, 132, 113);
     margin-right: 16px;
     text-decoration: none;
 }
 
 header a:hover {
-    color: #6b47b8;
+    color: rgb(224, 62, 34);
 }
 
 header {
@@ -80,14 +82,14 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #7C5CBF;
+    background: tomato;
     border: none;
     color: white;
     font-size: 16px;
     transition: background .3s ease;
 }
 button:hover {
-    background: #6b47b8;
+    background: rgb(238, 82, 54);
 }
 
 footer p {
