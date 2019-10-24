@@ -4,7 +4,9 @@
 
 <head>
     <title>Weather</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
     <script src="https://kit.fontawesome.com/9ed08eeeb8.js" crossorigin="anonymous"></script>
     <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
@@ -17,8 +19,8 @@
         <p>Use this site to get your weather forecast of your location!</p>
 
         <form>
-            <input style="font-size:2vh;" type="text" placeholder="Location">
-            <button style="font-size:2vh;" type="submit">Search</button>
+            <input style="font-size:2vh;" type="text" placeholder="Location" maxlength="20">
+            <button style="margin:2%;font-size:2vh;" type="submit">Search</button>
         </form>
         <span><button id="location" style="margin:3%;">Use my current location</button></span>
 
