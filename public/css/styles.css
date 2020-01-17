@@ -105,6 +105,6 @@ input {
         max-height: 70%;
     }
     footer {
-        margin: 2px;
+        display: none;
     }
 }
